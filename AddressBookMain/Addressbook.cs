@@ -16,6 +16,7 @@ namespace AddressBookMain
         string email;*/
 
         List<User> listUser = new List<User>();
+        Dictionary<string, User> addressBook = new Dictionary<string, User>();
 
         public void acceptData()
         {
@@ -105,7 +106,6 @@ namespace AddressBookMain
                     listUser.RemoveAt(i);
 
                 }
-
             }
 
             if (find == false)
@@ -117,6 +117,28 @@ namespace AddressBookMain
                 Console.WriteLine("User Deleted");
             }
         }
-        
+        public void dictionary()
+        {
+            for (int i = 0; i < listUser.Count; i++)
+            {
+                User user = listUser[i];
+
+                if (!addressBook.ContainsKey(user.firstName))
+                {
+                    addressBook.Add(user.firstName, user);
+                }
+                else
+                {
+                    Console.WriteLine("User with key= " + user.firstName + " Already there  Skipping this");
+                }
+            }
+            Console.WriteLine("Unique Name of the Dictionary is : ");
+
+            foreach (KeyValuePair<string, User> product in addressBook)
+            {
+                Console.WriteLine("Key = {0}, Value = {1}", product.Key, product.Value);
+
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace AddressBookMain
             int defCout = 0;
             while(defCout==0)
             {
-                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact 5:Add Multiple Contact 6:Exit");
+                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact 5:Add Multiple Contact 6:Unique Name 7:Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -50,8 +50,11 @@ namespace AddressBookMain
                         }
                         count++;
                         break;
-
-                        default:
+                    case 6:
+                        addressbook.dictionary();
+                        count++;
+                        break;
+                    default:
                         Console.WriteLine("Exit");
                         defCout++;
                         break;
