@@ -8,7 +8,9 @@ namespace AddressBookMain
         {
             Console.WriteLine("Wel-Come to the Address Book Program");
             Addressbook addressbook = new Addressbook();
-            addressbook.acceptData();   
+            addressbook.acceptData();
+            addressbook.displayData();
+             
         }
     }
 }

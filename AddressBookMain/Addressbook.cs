@@ -48,5 +48,27 @@ namespace AddressBookMain
             });
             
         }
+        public void displayData()
+        {
+            foreach (var i in listUser)
+            {
+                Console.Write("Your First Name is :");
+                Console.WriteLine(i.firstName);
+                Console.Write("Your Last Name is :");
+                Console.WriteLine(i.lastName);
+                Console.Write("Your Address is :");
+                Console.WriteLine(i.address);
+                Console.Write("Your City is :");
+                Console.WriteLine(i.city);
+                Console.Write("Your State is :");
+                Console.WriteLine(i.state);
+                Console.Write("Your Zip Code is :");
+                Console.WriteLine(i.zip);
+                Console.Write("Your Phone Number is :");
+                Console.WriteLine(i.phoneNo);
+                Console.WriteLine("Your Email is :");
+                Console.WriteLine(i.email);
+            }
+        }
     }
 }
