@@ -66,8 +66,26 @@ namespace AddressBookMain
                 Console.WriteLine(i.zip);
                 Console.Write("Your Phone Number is :");
                 Console.WriteLine(i.phoneNo);
-                Console.WriteLine("Your Email is :");
+                Console.Write("Your Email is :");
                 Console.WriteLine(i.email);
+            }
+        }
+        public void edit(string fName,string lName,string city)
+        {
+            Boolean find = false;
+            for(int i=0;i< listUser.Count;i++)
+            {
+                if(listUser[i].firstName.Equals(fName))
+                {
+                    find = true;
+                    listUser[i].lastName = lName;
+                    listUser[i].city = city;
+                }
+                Console.WriteLine("Name And City Changed");
+            }
+            if(find==false)
+            {
+                Console.WriteLine("Name is Not Exist");
             }
         }
     }
