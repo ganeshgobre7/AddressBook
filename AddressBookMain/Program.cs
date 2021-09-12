@@ -15,7 +15,7 @@ namespace AddressBookMain
             int defCout = 0;
             while(defCout==0)
             {
-                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact");
+                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact 5:Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -35,7 +35,14 @@ namespace AddressBookMain
                         addressbook.edit(fName, lName, city);
                         count++;
                         break;
+                    case 4:
+                        Console.WriteLine("Enter the FirstName to Change the LastName And City");
+                        string firstName = Console.ReadLine();
+                        addressbook.delete(firstName);
+                        count++;
+                        break;
                     default:
+                        Console.WriteLine("Exit");
                         defCout++;
                         break;
                 }

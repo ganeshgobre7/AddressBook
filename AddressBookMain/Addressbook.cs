@@ -70,12 +70,12 @@ namespace AddressBookMain
                 Console.WriteLine(i.email);
             }
         }
-        public void edit(string fName,string lName,string city)
+        public void edit(string fName, string lName, string city)
         {
             Boolean find = false;
-            for(int i=0;i< listUser.Count;i++)
+            for (int i = 0; i < listUser.Count; i++)
             {
-                if(listUser[i].firstName.Equals(fName))
+                if (listUser[i].firstName.Equals(fName))
                 {
                     find = true;
                     listUser[i].lastName = lName;
@@ -83,9 +83,32 @@ namespace AddressBookMain
                 }
                 Console.WriteLine("Name And City Changed");
             }
-            if(find==false)
+            if (find == false)
             {
                 Console.WriteLine("Name is Not Exist");
+            }
+        }
+        public void delete(string fName)
+        {
+            Boolean find = false;
+            for (int i = 0; i < listUser.Count; i++)
+            {
+                if (listUser[i].firstName.Equals(fName))
+                {
+                    find = true;
+                    listUser.RemoveAt(i);
+
+                }
+              
+            }
+
+            if (find == false)
+            {
+                Console.WriteLine("Name is Not Exist");
+            }
+            else
+            {
+                Console.WriteLine("User deleted");
             }
         }
     }
