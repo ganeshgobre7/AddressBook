@@ -6,18 +6,20 @@ namespace AddressBookMain
 {
     class Addressbook
     {
-        String firstName;
+        /*String firstName;
         String lastName;
         String address;
         string city;
         string state;
         int zip;
         long phoneNo;
-        string email;
+        string email;*/
 
         List<User> listUser = new List<User>();
+
         public void acceptData()
         {
+
             Console.Write("Enter your First Name :");
             string firstName = Console.ReadLine();
             Console.Write("Enter your Last Name :");
@@ -46,7 +48,7 @@ namespace AddressBookMain
                 phoneNo = phoneNo,
                 email = email
             });
-            
+
         }
         public void displayData()
         {
@@ -81,11 +83,15 @@ namespace AddressBookMain
                     listUser[i].lastName = lName;
                     listUser[i].city = city;
                 }
-                Console.WriteLine("Name And City Changed");
+
             }
             if (find == false)
             {
                 Console.WriteLine("Name is Not Exist");
+            }
+            else
+            {
+                Console.WriteLine("Name And City Changed");
             }
         }
         public void delete(string fName)
@@ -99,7 +105,7 @@ namespace AddressBookMain
                     listUser.RemoveAt(i);
 
                 }
-              
+
             }
 
             if (find == false)
@@ -108,8 +114,9 @@ namespace AddressBookMain
             }
             else
             {
-                Console.WriteLine("User deleted");
+                Console.WriteLine("User Deleted");
             }
         }
+        
     }
 }

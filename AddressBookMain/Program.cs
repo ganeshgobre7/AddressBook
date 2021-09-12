@@ -15,7 +15,7 @@ namespace AddressBookMain
             int defCout = 0;
             while(defCout==0)
             {
-                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact 5:Exit");
+                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact 5:Add Multiple Contact 6:Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -41,7 +41,17 @@ namespace AddressBookMain
                         addressbook.delete(firstName);
                         count++;
                         break;
-                    default:
+                    case 5:
+                        Console.WriteLine("Enter How Many Address You Want to Add");
+                        int num = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < num; i++)
+                        {
+                            addressbook.acceptData();
+                        }
+                        count++;
+                        break;
+
+                        default:
                         Console.WriteLine("Exit");
                         defCout++;
                         break;
