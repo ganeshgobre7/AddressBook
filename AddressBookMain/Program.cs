@@ -7,6 +7,8 @@ namespace AddressBookMain
         static void Main(string[] args)
         {
             Console.WriteLine("Wel-Come to the Address Book Program");
+            Addressbook addressbook = new Addressbook();
+            addressbook.acceptData();   
         }
     }
 }
