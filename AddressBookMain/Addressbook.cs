@@ -134,6 +134,22 @@ namespace AddressBookMain
                 Console.WriteLine("User Deleted");
             }
         }
-        
+        public void dictionary()
+        {
+            for (int i = 0; i < listUser.Count; i++)
+            {
+                User user = listUser[i];
+
+                if (!addressBook.ContainsKey(user.firstName))
+                {
+                    addressBook.Add(user.firstName, user);
+                }
+                else
+                {
+                    Console.WriteLine("User with key= " + user.firstName + " Already there  Skipping this");
+                }
+            }
+            Console.WriteLine("Unique Name of the Dictionary is : ");
+        }
     }
 }
