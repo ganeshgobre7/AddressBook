@@ -133,12 +133,6 @@ namespace AddressBookMain
                 }
             }
             Console.WriteLine("Unique Name of the Dictionary is : ");
-
-            foreach (KeyValuePair<string, User> product in addressBook)
-            {
-                Console.WriteLine("Key = {0}, Value = {1}", product.Key, product.Value);
-
-            }
         }
     }
 }
