@@ -10,8 +10,6 @@ namespace AddressBookMain
             
 
             Addressbook addressbook = new Addressbook();
-
-            int count = 0;
             int defCout = 0;
             while(defCout==0)
             {
@@ -36,7 +34,7 @@ namespace AddressBookMain
                         //count++;
                         break;
                     case 4:
-                        Console.WriteLine("Enter the FirstName to Change the LastName And City");
+                        Console.WriteLine("Enter the FirstName to delete the contact");
                         string firstName = Console.ReadLine();
                         addressbook.delete(firstName);
                       //  count++;
