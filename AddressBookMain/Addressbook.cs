@@ -18,8 +18,10 @@ namespace AddressBookMain
 
         List<User> listUser = new List<User>();//List to store the contact details
 
-        Dictionary<string, User> addressBook = new Dictionary<string, User>();
-
+        Dictionary<string, User> addressBook = new Dictionary<string, User>();//for multiple address book
+        /// <summary>
+        /// Method to add contact in address book
+        /// </summary>
         public void acceptData()
         {
 
@@ -53,6 +55,9 @@ namespace AddressBookMain
             });
 
         }
+        /// <summary>
+        /// Method to print the contact without repetation
+        /// </summary>
         public void displayData()
         {
             for (int i = 0; i < listUser.Count; i++)
@@ -71,7 +76,7 @@ namespace AddressBookMain
                 
             }
 
-            foreach (var i in addressBook)
+            foreach (var i in addressBook) //print the contact
             {
                 Console.Write("Your First Name is :");
                 Console.WriteLine(i.Key);
@@ -91,6 +96,12 @@ namespace AddressBookMain
                 Console.WriteLine(i.Value.email);
             }
         }
+        /// <summary>
+        /// Method to Edit the Contact
+        /// </summary>
+        /// <param name="fName"></param>
+        /// <param name="lName"></param>
+        /// <param name="city"></param>
         public void edit(string fName, string lName, string city)
         {
             Boolean find = false;
@@ -113,6 +124,10 @@ namespace AddressBookMain
                 Console.WriteLine("Name And City Changed");
             }
         }
+        /// <summary>
+        /// Method to Delete contact
+        /// </summary>
+        /// <param name="fName"></param>
         public void delete(string fName)
         {
             Boolean find = true;
@@ -135,6 +150,11 @@ namespace AddressBookMain
                 Console.WriteLine("User Deleted");
             }
         }  
+        /// <summary>
+        /// Method to serrach person in City  or State
+        /// </summary>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
         public void SearchByStateAndCity(string city ,string state)
         {
             List<User> listUser1 = listUser.FindAll((user) => (user.city.Equals(city) || state.Equals(user.state)));
