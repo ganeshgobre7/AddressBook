@@ -6,6 +6,7 @@ namespace AddressBookMain
 {
     class Addressbook
     {
+        
         /*String firstName;
         String lastName;
         String address;
@@ -15,7 +16,8 @@ namespace AddressBookMain
         long phoneNo;
         string email;*/
 
-        List<User> listUser = new List<User>();
+        List<User> listUser = new List<User>();//List to store the contact details
+
         Dictionary<string, User> addressBook = new Dictionary<string, User>();
 
         public void acceptData()
@@ -124,13 +126,22 @@ namespace AddressBookMain
                 }
             }
 
-            if (find == false)
+            if (find == false) 
             {
                 Console.WriteLine("Name is Not Exist");
             }
             else
             {
                 Console.WriteLine("User Deleted");
+            }
+        }  
+        public void SearchByStateAndCity(string city ,string state)
+        {
+            List<User> listUser1 = listUser.FindAll((user) => (user.city.Equals(city) || state.Equals(user.state)));
+            foreach(var user in listUser1)
+            {
+                Console.WriteLine("Name present in  {0} city is : {1}",city,user.firstName);
+                Console.WriteLine("Name present in {0} state is : {1}", state, user.firstName);
             }
         }
     }
