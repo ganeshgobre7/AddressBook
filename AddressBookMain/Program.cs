@@ -12,7 +12,7 @@ namespace AddressBookMain
             int defCout = 0;
             while (defCout == 0)
             {
-                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact \n5:Add Multiple Contact 6:Search Person by city and name 7:Exit");
+                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact \n5:Add Multiple Contact 6:Search Person by city and name 7:Write File 8:Read File  9:Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -53,6 +53,12 @@ namespace AddressBookMain
                         Console.WriteLine("Enter the State You Want to Find");
                         string state = Console.ReadLine();
                         addressbook.SearchByStateAndCity(city1, state);
+                        break;
+                    case 7:
+                        addressbook.StreamWriteFile();
+                        break;
+                    case 8:
+                        addressbook.StreamReadFile();
                         break;
                     default:
                         Console.WriteLine("Exit");

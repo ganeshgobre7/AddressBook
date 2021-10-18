@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace AddressBookMain
 {
@@ -19,6 +20,7 @@ namespace AddressBookMain
         List<User> listUser = new List<User>();//List to store the contact details
 
         Dictionary<string, User> addressBook = new Dictionary<string, User>();//for multiple address book
+        public string Filepath = @"D:\B.LAB\Practice C sharp\AddressBookMain\AddressBookMain\Records.txt";
         /// <summary>
         /// Method to add contact in address book
         /// </summary>
@@ -162,6 +164,47 @@ namespace AddressBookMain
             {
                 Console.WriteLine("Name present in  {0} city is : {1}",city,user.firstName);
                 Console.WriteLine("Name present in {0} state is : {1}", state, user.firstName);
+            }
+        }
+        public void StreamWriteFile()
+        {
+            if(File.Exists(Filepath))
+            {
+                using(StreamWriter sr =File.AppendText(Filepath))
+                {
+                    foreach(User contacts in listUser )
+                    {
+                        sr.WriteLine("FirstName :" + contacts.firstName);
+                        sr.WriteLine("LastName :" + contacts.lastName);
+                        sr.WriteLine("Address :" + contacts.address);
+                        sr.WriteLine("City :" + contacts.city);
+                        sr.WriteLine("State :" + contacts.state);
+                        sr.WriteLine("ZipCode :" + contacts.zip);
+                        sr.WriteLine("PhoneNo :" + contacts.phoneNo);
+                        sr.WriteLine("Email :" + contacts.email);
+                    }
+                    sr.Close();
+                }
+
+                Console.WriteLine("Data Added in the File");
+            }
+        }
+        public void StreamReadFile()
+        {
+            if(File.Exists(Filepath))
+            {
+                using(StreamReader sr=File.OpenText(Filepath))
+                {
+                    String ContactDetails = "";
+                    while((ContactDetails=sr.ReadLine())!=null)
+                    {
+                        Console.WriteLine((ContactDetails));
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("No Such File Exist");
             }
         }
     }
