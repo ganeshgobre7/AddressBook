@@ -12,7 +12,7 @@ namespace AddressBookMain
             int defCout = 0;
             while (defCout == 0)
             {
-                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact \n5:Add Multiple Contact 6:Search Person by city and name 7:Write File 8:Read File  9:Exit");
+                Console.WriteLine("1:Add Contact  2:Display Contact  3:Edit Contact  4:Delete Contact \n5:Add Multiple Contact 6:Search Person by city and name 7:Write File 8:Read File 9:WriteCsv 10:ReadCsv 11:Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -59,6 +59,12 @@ namespace AddressBookMain
                         break;
                     case 8:
                         addressbook.StreamReadFile();
+                        break;
+                    case 9:
+                        addressbook.WriteContactCsv();
+                        break;
+                    case 10:
+                        addressbook.ReadContactCsv();
                         break;
                     default:
                         Console.WriteLine("Exit");

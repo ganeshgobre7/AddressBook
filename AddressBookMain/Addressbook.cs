@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using CsvHelper;
+using CsvHelper.Configuration;
+using System.Globalization;
+using System.Linq;
 
 namespace AddressBookMain
 {
@@ -21,6 +25,10 @@ namespace AddressBookMain
 
         Dictionary<string, User> addressBook = new Dictionary<string, User>();//for multiple address book
         public string Filepath = @"D:\B.LAB\Practice C sharp\AddressBookMain\AddressBookMain\Records.txt";
+        public string Csvpath = @"D:\B.LAB\Practice C sharp\AddressBookMain\AddressBookMain\CSVFileData.csv";
+        private TextWriter stream;
+        private TextReader reader;
+
         /// <summary>
         /// Method to add contact in address book
         /// </summary>
@@ -205,6 +213,30 @@ namespace AddressBookMain
             else
             {
                 Console.WriteLine("No Such File Exist");
+            }
+        }
+        public void WriteContactCsv()
+        {
+            using(StreamWriter sw = new StreamWriter(Csvpath))
+            using(CsvWriter cw=new CsvWriter(stream,CultureInfo.InvariantCulture))
+            {
+                cw.WriteRecord(listUser);
+            }
+            Console.WriteLine("Data Line Added in Csv File");
+
+            ReadContactCsv(); 
+        }
+
+        public void ReadContactCsv()
+        {
+            using(StreamReader sr=new StreamReader(Csvpath))
+            using(var read=new CsvReader(reader,CultureInfo.InvariantCulture))
+            {
+                var contacts = read.GetRecords<User>().ToList();
+                foreach(User contact in contacts)
+                {
+                    Console.WriteLine(contact.firstName + ","+ contact.lastName +"," +contact.address +"," + contact.city +"," + contact.state +"," +contact.zip +"," + contact.phoneNo +"," + contact.email);
+                }
             }
         }
     }
